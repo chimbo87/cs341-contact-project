@@ -7,7 +7,13 @@ const getAllPeople = async (req, res) => {
     const people = await Person.find();
     res.json(people);
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(500).json({ 
+      message: err.message,
+      exampleResponse: {
+        message: "Error fetching people",
+        error: "Database connection failed"
+      }
+    });
   }
 };
 
